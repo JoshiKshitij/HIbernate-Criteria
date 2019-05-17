@@ -4,13 +4,16 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
+import org.hibernate.mapping.Bag;
+
 @Entity
 public class Student {
 	
 	@Id
 	@GeneratedValue
 	private int id;
-	
+
+
 	private String name;
 	private double percentage;
 	

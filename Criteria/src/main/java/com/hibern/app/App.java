@@ -14,28 +14,27 @@ import org.hibernate.cfg.Configuration;
  *
  */
 public class App {
-	public static void main( String[] args )
-    {
-        Configuration configuration = new Configuration();
-        configuration.configure(new File("src/hibernate.cfg.xml"));
-        
-        // test weather hibernate is working or not
-        Session session = configuration.buildSessionFactory().openSession();
-       
-        session.beginTransaction();
-        for (int i = 0; i < 10; i++) {
-        	
-        	NumberFormat nf = NumberFormat.getInstance();
-        	nf.setMaximumFractionDigits(2);
-        	String per = nf.format((new Random().nextDouble()+30 +new Random().nextInt(65)));
-        	Student s1 = new Student( (char)(i+65) + "", Double.parseDouble(per) , ""+ (new Random().nextInt(5)+5));
-		session.save(s1);
-        }
-        
-        session.getTransaction().commit();
-        session.getSessionFactory().close();
-        session.close();
-        
-        
-    }
+	public static void main(String[] args) {
+		Configuration configuration = new Configuration();
+		configuration.configure(new File("src/hibernate.cfg.xml"));
+
+		// test weather hibernate is working or not
+		Session session = configuration.buildSessionFactory().openSession();
+
+		session.beginTransaction();
+		for (int i = 0; i < 10; i++) {
+
+			NumberFormat nf = NumberFormat.getInstance();
+			nf.setMaximumFractionDigits(2);
+			String per = nf.format((new Random().nextDouble() + 30 + new Random().nextInt(65)));
+			Student s1 = new Student((char) (i + 65) + "", Double.parseDouble(per), "" + (new Random().nextInt(5) + 5));
+			session.save(s1);
+		}
+
+		
+		session.getTransaction().commit();
+		session.getSessionFactory().close();
+		session.close();
+
+	}
 }
