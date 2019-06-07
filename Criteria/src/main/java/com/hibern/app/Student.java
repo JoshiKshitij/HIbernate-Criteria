@@ -4,15 +4,16 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
+import org.hibernate.annotations.GenericGenerator;
 import org.hibernate.mapping.Bag;
 
 @Entity
 public class Student {
 	
 	@Id
-	@GeneratedValue
+	@GeneratedValue(generator="ice")
+	@GenericGenerator(name="ice" , strategy= "increment")
 	private int id;
-
 
 	private String name;
 	private double percentage;

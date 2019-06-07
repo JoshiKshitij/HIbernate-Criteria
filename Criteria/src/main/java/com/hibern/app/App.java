@@ -22,16 +22,28 @@ public class App {
 		Session session = configuration.buildSessionFactory().openSession();
 
 		session.beginTransaction();
-		for (int i = 0; i < 10; i++) {
+		/*for (int i = 0; i < 10; i++) {
 
 			NumberFormat nf = NumberFormat.getInstance();
 			nf.setMaximumFractionDigits(2);
 			String per = nf.format((new Random().nextDouble() + 30 + new Random().nextInt(65)));
-			Student s1 = new Student((char) (i + 65) + "", Double.parseDouble(per), "" + (new Random().nextInt(5) + 5));
+			Student s1 = new Student((char) (i + 65) + "", Double.parseDouble(per), ""
+			+ (new Random().nextInt(5) + 5));
 			session.save(s1);
-		}
-
+		}*/
 		
+		
+		for (int i = 0; i < 5; i++) {
+
+			ClassLocation cl = new ClassLocation();
+			cl.setStdName((i+5) +"");
+			cl.setLocation("block " +  (new Random().nextInt(5) + 5));
+			session.save(cl);
+		}
+		
+		
+		
+
 		session.getTransaction().commit();
 		session.getSessionFactory().close();
 		session.close();

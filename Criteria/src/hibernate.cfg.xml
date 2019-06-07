@@ -10,8 +10,12 @@
 		<property name="hibernate.connection.username">root</property>
 		<property name="hibernate.connection.password">root</property>
 		<property name="show_sql">true</property>
-		<property name="format_sql">false</property>
+		<property name="format_sql">true</property>
 		<property name="hbm2ddl.auto">update</property>
-		 <mapping class = "com.hibern.app.Student"/> 
+		<mapping class="com.hibern.app.Student" />
+		<mapping class="com.hibern.app.ClassLocation" />
+		<mapping class="com.hibern.app.Department" />
+		<mapping class="com.hibern.app.Employee" />
+		<mapping class="com.hibern.app.Laptop" />
 	</session-factory>
 </hibernate-configuration>
